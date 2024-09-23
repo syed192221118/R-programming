@@ -1,0 +1,21 @@
+# 3. Analyze the airquality dataset
+data("airquality")
+
+# (i) Get the Summary Statistics of air quality dataset
+cat("Summary Statistics of airquality dataset:\n")
+summary(airquality)
+
+# (ii) Melt airquality data set to long format
+melted_data <- melt(airquality)
+cat("Melted airquality data (long format):\n")
+print(head(melted_data))
+
+# (iii) Melt airquality data with month and day as ID variables
+melted_data_id <- melt(airquality, id.vars = c("Month", "Day"))
+cat("Melted airquality data with Month and Day as ID variables:\n")
+print(head(melted_data_id))
+
+# (iv) Cast the molten airquality data set to get average per month
+cast_data <- dcast(melted_data_id, Month ~ variable, mean)
+cat("Average of Ozone, Solar.R, Wind, and Temp per Month:\n")
+print(cast_data)

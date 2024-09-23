@@ -1,0 +1,13 @@
+# 2. Create an array with a vector of values and specified dimensions
+values <- 1:12
+dimensions <- c(3, 2, 2)  # 3 rows, 2 columns, 2 tables
+my_array <- array(values, dim = dimensions)
+
+# Provide names for each dimension
+dimnames(my_array) <- list(Row = c("Row1", "Row2", "Row3"),
+                            Column = c("Col1", "Col2"),
+                            Table = c("Table1", "Table2"))
+
+cat("Array with Named Dimensions:\n")
+print(my_array)
+

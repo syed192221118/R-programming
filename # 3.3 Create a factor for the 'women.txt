@@ -1,0 +1,5 @@
+# 3. Create a factor for the 'women' dataset
+data("women")
+women_height_factor <- factor(women$height)
+cat("Height Factor Levels:\n")
+print(levels(women_height_factor))

@@ -1,0 +1,9 @@
+# 1. Create an array
+values <- 1:24
+dimensions <- c(3, 4, 2)  # 3 rows, 4 columns, 2 tables
+dim_names <- list(Rows = c("Row1", "Row2", "Row3"), 
+                  Columns = c("Col1", "Col2", "Col3", "Col4"), 
+                  Tables = c("Table1", "Table2"))
+my_array <- array(values, dim = dimensions, dimnames = dim_names)
+cat("Array with Named Dimensions:\n")
+print(my_array)

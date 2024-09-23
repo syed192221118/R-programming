@@ -1,0 +1,13 @@
+# 2. Create an array with three columns, three rows, and two "tables"
+input_vector1 <- 1:6
+input_vector2 <- 7:12
+
+# Create the matrices
+matrix3 <- matrix(input_vector1, nrow = 3, ncol = 2)
+matrix4 <- matrix(input_vector2, nrow = 3, ncol = 2)
+
+# Create an array from the matrices
+my_array2 <- array(c(matrix3, matrix4), dim = c(3, 2, 2))
+cat("Array with three columns, three rows, and two tables:\n")
+print(my_array2)
+

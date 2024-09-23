@@ -1,0 +1,44 @@
+Name,Department,Salary,JoiningYear
+Alice,IT,70000,2015
+Bob,HR,50000,2012
+Charlie,IT,80000,2014
+David,Finance,60000,2013
+Eve,IT,90000,2016
+Frank,HR,55000,2018
+Grace,IT,75000,2019
+Hannah,Finance,65000,2010
+
+# Load necessary library
+library(dplyr)
+
+# i. Read the CSV file
+data <- read.csv("input.csv")
+
+# Display the data
+cat("Data from CSV:\n")
+print(data)
+
+# ii. Analyze the CSV File
+# a. Get the maximum salary
+max_salary <- max(data$Salary)
+cat("Maximum Salary:", max_salary, "\n")
+
+# b. Get the details of the person with max salary
+person_max_salary <- data[data$Salary == max_salary, ]
+cat("Details of the person with Maximum Salary:\n")
+print(person_max_salary)
+
+# c. Get all the people working in IT department
+it_department <- data[data$Department == "IT", ]
+cat("People working in IT Department:\n")
+print(it_department)
+
+# d. Get persons in IT department whose salary is greater than 600
+it_high_salary <- it_department[it_department$Salary > 60000, ]
+cat("People in IT Department with Salary greater than 600:\n")
+print(it_high_salary)
+
+# e. Get people who joined on or after 2014
+joined_after_2014 <- data[data$JoiningYear >= 2014, ]
+cat("People who joined on or after 2014:\n")
+print(joined_after_2014)

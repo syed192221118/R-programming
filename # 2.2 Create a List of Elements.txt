@@ -1,0 +1,8 @@
+# 2. Create a List of Elements
+vector_example <- c(1, 2, 3)
+matrix_example <- matrix(1:9, nrow = 3)
+function_example <- function(x) x^2
+
+my_list <- list(my_vector = vector_example, my_matrix = matrix_example, my_function = function_example)
+print("List Content:")
+print(my_list)

@@ -1,0 +1,12 @@
+# 4. Create an Array
+# Define the columns and rows
+columns <- c(1, 2, 3, 4)
+rows <- 3
+tables <- 2
+
+# Create the array
+array_data <- array(1:24, dim = c(rows, length(columns), tables))
+
+# Display the content of the array
+cat("Array Content:\n")
+print(array_data)

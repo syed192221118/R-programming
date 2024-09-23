@@ -1,0 +1,19 @@
+# 3. Logistic Regression on the Iris Dataset
+# Split data
+set.seed(123)
+train_index <- createDataPartition(iris$Species, p = 0.8, list = FALSE)
+train_data <- iris[train_index, ]
+test_data <- iris[-train_index, ]
+
+# Create Logistic Regression Model
+model_logistic <- glm(Species ~ Petal.Length + Petal.Width, data = train_data, family = "binomial")
+summary(model_logistic)
+
+# Predict probabilities
+pred_probs <- predict(model_logistic, newdata = test_data, type = "response")
+
+# Create Confusion Matrix
+pred_classes <- ifelse(pred_probs > 0.5, "versicolor", "setosa")  # Simplified for 2 classes
+confusion_matrix <- table(test_data$Species, pred_classes)
+cat("Confusion Matrix:\n")
+print(confusion_matrix)

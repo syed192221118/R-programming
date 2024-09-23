@@ -1,0 +1,25 @@
+# 2. Air Quality Dataset
+# Summary Statistics
+cat("Summary Statistics of Air Quality Dataset:\n")
+print(summary(airquality))
+
+# Melt airquality dataset
+molten_data <- melt(airquality)
+cat("Melted Air Quality Data:\n")
+print(head(molten_data))
+
+# Melt airquality with month and day as "ID variables"
+molten_data_id <- melt(airquality, id.vars = c("Month", "Day"))
+cat("Melted Data with ID Variables:\n")
+print(head(molten_data_id))
+
+# Cast molten data set with respect to month and date features
+cast_data <- dcast(molten_data_id, Month + Day ~ variable)
+cat("Cast Data:\n")
+print(head(cast_data))
+
+# Compute the average of Ozone, Solar.R, Wind, and Temperature per month
+average_data <- dcast(molten_data_id[variable %in% c("Ozone", "Solar.R", "Wind", "Temp")],
+                       Month ~ variable, mean)
+cat("Average Data per Month:\n")
+print(average_data)

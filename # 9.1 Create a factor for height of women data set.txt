@@ -1,0 +1,9 @@
+# Load necessary libraries
+library(ggplot2)
+
+# 1. Create a factor for height of women data set
+data("women")  # Built-in dataset with height and weights
+height_factor <- factor(women$height)
+cat("Factor levels for height:\n")
+print(levels(height_factor))
+

@@ -1,0 +1,21 @@
+# 4. Create matrices
+# 5x4 matrix
+matrix_5x4 <- matrix(1:20, nrow = 5, ncol = 4, byrow = TRUE)
+rownames(matrix_5x4) <- paste("Row", 1:5)
+colnames(matrix_5x4) <- paste("Col", 1:4)
+cat("5x4 Matrix:\n")
+print(matrix_5x4)
+
+# 3x3 matrix with labels
+matrix_3x3 <- matrix(1:9, nrow = 3, byrow = TRUE)
+rownames(matrix_3x3) <- c("A", "B", "C")
+colnames(matrix_3x3) <- c("X", "Y", "Z")
+cat("3x3 Matrix:\n")
+print(matrix_3x3)
+
+# 2x2 matrix filled by columns
+matrix_2x2 <- matrix(1:4, nrow = 2, byrow = FALSE)
+rownames(matrix_2x2) <- c("First", "Second")
+colnames(matrix_2x2) <- c("One", "Two")
+cat("2x2 Matrix:\n")
+print(matrix_2x2)

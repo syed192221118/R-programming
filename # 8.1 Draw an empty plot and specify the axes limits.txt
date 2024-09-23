@@ -1,0 +1,9 @@
+# Load necessary libraries
+library(reshape2)
+library(dplyr)
+
+# 1. Draw an empty plot and specify the axes limits
+plot(1, type = "n", xlab = "X-axis", ylab = "Y-axis", xlim = c(0, 10), ylim = c(0, 100))
+title(main = "Empty Plot with Specified Axes Limits")
+
+

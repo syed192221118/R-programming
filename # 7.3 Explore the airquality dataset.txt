@@ -1,0 +1,26 @@
+# 3. Explore the airquality dataset
+data("airquality")
+
+# i. Compute the mean temperature without using built-in function
+mean_temp <- sum(airquality$Temp) / nrow(airquality)
+cat("Mean Temperature:", mean_temp, "\n")
+
+# ii. Extract the first five rows
+first_five_rows <- airquality[1:5, ]
+cat("First five rows of airquality:\n")
+print(first_five_rows)
+
+# iii. Extract all columns except Temp and Wind
+filtered_data <- airquality[, !(names(airquality) %in% c("Temp", "Wind"))]
+cat("Data without Temp and Wind:\n")
+print(head(filtered_data))
+
+# iv. Find the coldest day
+coldest_day <- airquality[which.min(airquality$Temp), ]
+cat("Coldest day during the period:\n")
+print(coldest_day)
+
+# v. Count how many days had wind speed greater than 17 mph
+days_high_wind <- sum(airquality$Wind > 17)
+cat("Number of days with wind speed greater than 17 mph:", days_high_wind, "\n")
+

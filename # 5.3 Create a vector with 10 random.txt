@@ -1,0 +1,4 @@
+# 3. Create a vector with 10 random integer values between -50 and +50
+random_integers <- sample(-50:50, size = 10)
+cat("Random Integers Between -50 and +50:\n")
+print(random_integers)

@@ -1,0 +1,56 @@
+# Load necessary libraries
+library(ggplot2)
+library(dplyr)
+library(caret)
+
+# 1. Explore the USArrests dataset
+data("USArrests")
+
+# a. Summary of the dataset
+cat("Summary of USArrests dataset:\n")
+summary(USArrests)
+cat("Number of records per feature:\n")
+sapply(USArrests, function(x) length(na.omit(x)))
+
+# b. State with the largest total number of rape arrests
+largest_rape_state <- rownames(USArrests)[which.max(USArrests$Rape)]
+cat("State with largest number of rape arrests:", largest_rape_state, "\n")
+
+# c. States with max & min murder crime rates
+max_murder_state <- rownames(USArrests)[which.max(USArrests$Murder)]
+min_murder_state <- rownames(USArrests)[which.min(USArrests$Murder)]
+cat("State with max murder rate:", max_murder_state, "\n")
+cat("State with min murder rate:", min_murder_state, "\n")
+
+# d. Correlation among the features
+correlation_matrix <- cor(USArrests)
+cat("Correlation among features:\n")
+print(correlation_matrix)
+
+# e. States with assault arrests more than the median
+median_assault <- median(USArrests$Assault)
+high_assault_states <- rownames(USArrests[USArrests$Assault > median_assault, ])
+cat("States with assault arrests more than median:", high_assault_states, "\n")
+
+# f. States in the bottom 25% of murder
+bottom_25_murder_states <- rownames(USArrests[USArrests$Murder < quantile(USArrests$Murder, 0.25), ])
+cat("States in the bottom 25% of murder rates:", bottom_25_murder_states, "\n")
+
+# g. Create a histogram and density plot of murder arrests
+ggplot(USArrests, aes(x = Murder)) +
+  geom_histogram(aes(y = ..density..), bins = 10, fill = "lightblue") +
+  geom_density(color = "red") +
+  labs(title = "Histogram and Density Plot of Murder Arrests", x = "Murder Arrests", y = "Density")
+
+# h. Relationship between murder rate and urban population
+ggplot(USArrests, aes(x = UrbanPop, y = Murder, size = Assault, color = Assault)) +
+  geom_point(alpha = 0.7) +
+  scale_color_gradient(low = "blue", high = "red") +
+  labs(title = "Murder Rate vs Urban Population", x = "Urban Population (%)", y = "Murder Rate") +
+  theme_minimal()
+
+# i. Bar graph of murder rate for each state
+ggplot(USArrests, aes(x = reorder(rownames(USArrests), Murder), y = Murder)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  coord_flip() +
+  labs(title = "Murder Rate by State", x = "State", y = "Murder Rate")

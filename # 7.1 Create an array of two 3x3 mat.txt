@@ -1,0 +1,18 @@
+# 1. Create an array of two 3x3 matrices from two given vectors
+vector1 <- 1:9
+vector2 <- 10:18
+
+# Create the matrices
+matrix1 <- matrix(vector1, nrow = 3, ncol = 3)
+matrix2 <- matrix(vector2, nrow = 3, ncol = 3)
+
+# Create an array of the matrices
+my_array <- array(c(matrix1, matrix2), dim = c(3, 3, 2))
+
+# Print the second row of the second matrix
+cat("Second row of the second matrix:\n")
+print(my_array[2,,2])
+
+# Print the element in the 3rd row and 3rd column of the 1st matrix
+cat("Element in the 3rd row and 3rd column of the 1st matrix:", my_array[3,3,1], "\n")
+

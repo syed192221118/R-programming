@@ -1,0 +1,10 @@
+# 4. Sort a given data frame by name and score
+exam_data <- data.frame(
+  name = c('Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'),
+  score = c(12.5, 9, 16.5, 12, 9, 20, 14.5, 13.5, 8, 19)
+)
+
+# Sort the data frame by name and score
+sorted_data <- exam_data[order(exam_data$name, exam_data$score), ]
+cat("Sorted Data Frame by name and score:\n")
+print(sorted_data)

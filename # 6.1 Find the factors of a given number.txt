@@ -1,0 +1,10 @@
+# Load necessary libraries
+library(ggplot2)
+library(dplyr)
+
+# 1. Find the factors of a given number
+find_factors <- function(n) {
+  factors <- which(n %% 1:n == 0)
+  cat("Factors of", n, ":", factors, "\n")
+}
+find_factors(28)  # Example number

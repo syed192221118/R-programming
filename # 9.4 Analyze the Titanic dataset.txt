@@ -1,0 +1,24 @@
+# 4. Analyze the Titanic dataset
+data("Titanic")
+titanic_df <- as.data.frame(Titanic)
+
+# a. Bar chart for "Survived" based on passenger Class
+ggplot(titanic_df, aes(x = Class, fill = factor(Survived))) +
+  geom_bar(position = "dodge") +
+  labs(title = "Survival Count by Passenger Class", x = "Passenger Class", y = "Count") +
+  scale_fill_manual(values = c("red", "green"), labels = c("Not Survived", "Survived")) +
+  theme_minimal()
+
+# b. Modify the plot based on gender of people who survived
+ggplot(titanic_df, aes(x = Class, fill = factor(Survived))) +
+  geom_bar(data = subset(titanic_df, Survived == 1), position = "dodge") +
+  facet_wrap(~ Sex) +
+  labs(title = "Survival Count by Passenger Class and Gender", x = "Passenger Class", y = "Count") +
+  scale_fill_manual(values = c("red", "green"), labels = c("Not Survived", "Survived")) +
+  theme_minimal()
+
+# c. Histogram plot for the distribution of "Age"
+ggplot(titanic_df, aes(x = Age)) +
+  geom_histogram(bins = 30, fill = "blue", alpha = 0.7) +
+  labs(title = "Age Distribution of Passengers", x = "Age", y = "Count") +
+  theme_minimal()

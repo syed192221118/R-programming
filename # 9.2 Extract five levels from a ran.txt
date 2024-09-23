@@ -1,0 +1,4 @@
+# 2. Extract five levels from a random sample of LETTERS
+sample_letters <- sample(LETTERS, 5)
+cat("Random sample of LETTERS:\n")
+print(sample_letters)

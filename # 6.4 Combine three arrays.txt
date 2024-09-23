@@ -1,0 +1,9 @@
+# 4. Combine three arrays
+array1 <- matrix(1:6, nrow = 2)
+array2 <- matrix(7:12, nrow = 2)
+array3 <- matrix(13:18, nrow = 2)
+
+# Combine arrays by rows
+combined_array <- rbind(array1, array2, array3)
+cat("Combined Array:\n")
+print(combined_array)

@@ -1,0 +1,3 @@
+# 3. Save the data frame to a file and display its information
+write.csv(USArrests, "USArrests.csv", row.names = TRUE)
+cat("Data saved to 'USArrests.csv'.\n")

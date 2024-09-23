@@ -1,0 +1,25 @@
+# Load required libraries
+library(reshape2)
+library(caret)
+
+# 1. Multiple Regression Model for Chicken Weight
+# Sample data
+chicken_data <- data.frame(
+  Weight = c(1.5, 1.7, 1.6, 2.0, 2.2),
+  Time = c(5, 7, 8, 10, 12),
+  Diet = c(1, 1, 2, 2, 2)
+)
+
+# Fit the model
+model <- lm(Weight ~ Time + Diet, data = chicken_data)
+summary(model)
+
+# Predict weight for Time = 10 and Diet = 1
+new_data <- data.frame(Time = 10, Diet = 1)
+predicted_weight <- predict(model, newdata = new_data)
+cat("Predicted Weight:", predicted_weight, "\n")
+
+# Find the error (assumed actual weight is missing)
+actual_weight <- NA  # Replace with actual value if available
+error <- actual_weight - predicted_weight
+cat("Prediction Error:", error, "\n")

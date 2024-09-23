@@ -1,0 +1,19 @@
+# 4. Randomly sample the iris dataset
+library(caret)
+set.seed(123)  # For reproducibility
+train_index <- createDataPartition(iris$Species, p = 0.8, list = FALSE)
+train_data <- iris[train_index, ]
+test_data <- iris[-train_index, ]
+
+# Create Logistic Regression Model
+logistic_model <- glm(Species ~ Petal.Length + Petal.Width, data = train_data, family = "binomial")
+summary(logistic_model)
+
+# Predict probabilities
+pred_probs <- predict(logistic_model, newdata = test_data, type = "response")
+pred_classes <- ifelse(pred_probs > 0.5, "versicolor", "setosa")  # Simplified for 2 classes
+
+# Create Confusion Matrix
+confusion_matrix <- table(test_data$Species, pred_classes)
+cat("Confusion Matrix:\n")
+print(confusion_matrix)
